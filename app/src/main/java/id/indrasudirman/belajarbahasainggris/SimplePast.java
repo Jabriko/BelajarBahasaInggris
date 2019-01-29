@@ -36,7 +36,13 @@ public class SimplePast extends AppCompatActivity {
     public ViewPager viewPager;
     public TabLayout tabLayout;
 
-    int[] colorIntArray = {R.color.colorAccent, R.color.colorAccent, R.color.colorAccent};
+    private int[] tabIcons = {
+            R.drawable.check,
+            R.drawable.check,
+            R.drawable.check
+    };
+
+    int[] colorIntArray = {R.color.fab_color, R.color.fab_color, R.color.fab_color};
     int[] iconIntArray = {R.drawable.ic_tab_next, R.drawable.check, R.drawable.ic_tab_next};
 
     @Override
