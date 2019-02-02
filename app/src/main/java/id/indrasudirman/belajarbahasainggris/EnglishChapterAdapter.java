@@ -24,20 +24,20 @@ public class EnglishChapterAdapter extends RecyclerView.Adapter <EnglishChapterA
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title, count;
-        public ImageView thumbnail, overflow;
+        public ImageView thumbnail;
 
         public MyViewHolder (View view) {
             super(view);
             title = view.findViewById(R.id.title);
             count = view.findViewById(R.id.count);
             thumbnail = view.findViewById(R.id.thumbnail);
-            overflow = view.findViewById(R.id.overflow);
+
         }
 
     }
 
-    public EnglishChapterAdapter(Context mcontext, List <EnglishChapter> englishChapterList){
-        this.mcontext = mcontext;
+    public EnglishChapterAdapter(Context mContext, List <EnglishChapter> englishChapterList){
+        this.mcontext = mContext;
         this.englishChapterList = englishChapterList;
     }
 
@@ -57,54 +57,10 @@ public class EnglishChapterAdapter extends RecyclerView.Adapter <EnglishChapterA
 
         //Loading englishChapter cover using Glide library
         Glide.with(mcontext).load(englishChapter.getThumbnail()).into(myViewHolder.thumbnail);
-
-        myViewHolder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopupMenu (myViewHolder.overflow);
-
-            }
-        });
-
     }
 
-    /**
-     * Showing popup menu when tapping on 3 dots
-     */
 
-    private void showPopupMenu (View view) {
-        //Inflate menu
-        PopupMenu popupMenu = new PopupMenu(mcontext, view);
-        MenuInflater inflater = popupMenu.getMenuInflater();
-        inflater.inflate(R.menu.menu_album, popupMenu.getMenu());
-        popupMenu.setOnMenuItemClickListener(new MyMenuItemClickListener());
-        popupMenu.show();
-    }
 
-    /**
-     * Click listener for popup menu items
-     */
-
-    class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
-
-        public MyMenuItemClickListener() {
-        }
-
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.action_add_favourite:
-                    Toast.makeText(mcontext, "Add to Favourite", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.action_play_next:
-                    Toast.makeText(mcontext, "Play Next", Toast.LENGTH_SHORT).show();
-                    return true;
-                    default:
-            }
-
-            return false;
-        }
-    }
 
     @Override
     public int getItemCount() {

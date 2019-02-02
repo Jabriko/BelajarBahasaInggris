@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SimplePast"></activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
@@ -21,10 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SimplePast" />
-        <activity android:name=".SimplePresent">
-
-        </activity>
+        <activity android:name=".SimplePresent"></activity>
     </application>
 
 </manifest>
